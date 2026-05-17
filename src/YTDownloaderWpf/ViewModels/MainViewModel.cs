@@ -33,7 +33,9 @@ public class MainViewModel : ObservableObject
         OutputFormats = [];
 
         UpdateOutputFormats();
-
+        DownloadFolder = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            "Downloads");
         SelectedDownloadMode = DownloadModes[0];
         Qualities =
         [
@@ -46,6 +48,8 @@ public class MainViewModel : ObservableObject
         SelectedQuality = Qualities[0];
         LoadVideoInfoCommand = new AsyncRelayCommand(LoadVideoInfoAsync);
         DownloadCommand = new AsyncRelayCommand(DownloadAsync);
+        SelectDownloadFolderCommand = new RelayCommand(SelectDownloadFolder);
+        CancelDownloadCommand = new RelayCommand(CancelDownload);
     }
 
     public string? Url
@@ -111,9 +115,37 @@ public class MainViewModel : ObservableObject
     public ObservableCollection<string> OutputFormats { get; }
 
     public VideoInfo? CurrentVideoInfo { get; set; }
+    private string? _statusText;
+    private bool _isDownloading;
+    private string? _logText;
+    public string? StatusText
+    {
+        get => _statusText;
+        set => SetProperty(ref _statusText, value);
+    }
 
+    public bool IsDownloading
+    {
+        get => _isDownloading;
+        set => SetProperty(ref _isDownloading, value);
+    }
+
+    public string? LogText
+    {
+        get => _logText;
+        set => SetProperty(ref _logText, value);
+    }
+    private string? _downloadFolder;
+    public string? DownloadFolder
+    {
+        get => _downloadFolder;
+        set => SetProperty(ref _downloadFolder, value);
+    }
+    private CancellationTokenSource? _downloadCancellationTokenSource;
     public IAsyncRelayCommand LoadVideoInfoCommand { get; }
     public IAsyncRelayCommand DownloadCommand { get; }
+    public IRelayCommand SelectDownloadFolderCommand { get; }
+    public IRelayCommand CancelDownloadCommand { get; }
     private async Task LoadVideoInfoAsync()
     {
         if (string.IsNullOrWhiteSpace(Url))
@@ -136,6 +168,23 @@ public class MainViewModel : ObservableObject
         finally
         {
             IsLoading = false;
+        }
+    }
+
+    private void CancelDownload()
+    {
+        _downloadCancellationTokenSource?.Cancel();
+    }
+    private void SelectDownloadFolder()
+    {
+        var dialog = new Microsoft.Win32.OpenFolderDialog
+        {
+            Title = "Wybierz folder zapisu"
+        };
+
+        if (dialog.ShowDialog() == true)
+        {
+            DownloadFolder = dialog.FolderName;
         }
     }
     private void UpdateOutputFormats()
@@ -177,42 +226,79 @@ public class MainViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(Url))
             return;
-
-        var request = new DownloadRequest
+        if (IsDownloading)
+            return;
+        try
         {
-            Url = Url,
-            OutputFormat = SelectedOutputFormat ?? "mp4",
-            Quality = SelectedQuality ?? "Best",
-            Mode = SelectedDownloadMode switch
+            IsDownloading = true;
+            StatusText = "Przygotowywanie pobierania...";
+            LogText = "";
+            Progress = 0;
+
+            var request = new DownloadRequest
             {
-                "Audio Only" => DownloadMode.AudioOnly,
-                "Video Only" => DownloadMode.VideoOnly,
-                _ => DownloadMode.VideoWithAudio
-            }
-        };
+                Url = Url,
+                OutputFormat = SelectedOutputFormat ?? "mp4",
+                Quality = SelectedQuality ?? "Best",
+                Mode = SelectedDownloadMode switch
+                {
+                    "Audio Only" => DownloadMode.AudioOnly,
+                    "Video Only" => DownloadMode.VideoOnly,
+                    _ => DownloadMode.VideoWithAudio
+                }
+            };
 
-        var downloadsFolder = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-            "Downloads");
+            var downloadsFolder = DownloadFolder;
 
-        Directory.CreateDirectory(downloadsFolder);
+            if (string.IsNullOrWhiteSpace(downloadsFolder))
+                return;
 
-        var outputPath = Path.Combine(
-            downloadsFolder,
-            "%(title)s.%(ext)s");
+            Directory.CreateDirectory(downloadsFolder);
 
-        var arguments = _argumentBuilder.Build(request, outputPath);
+            var outputPath = Path.Combine(
+                downloadsFolder,
+                "%(title)s.%(ext)s");
 
-        Progress = 0;
+            var arguments = _argumentBuilder.Build(request, outputPath);
 
-        await _ytDlpService.RunCustomCommandAsync(
-            arguments,
-            HandleProgress);
+            StatusText = "Pobieranie / konwersja...";
+            _downloadCancellationTokenSource = new CancellationTokenSource();
+            await _ytDlpService.RunCustomCommandAsync(
+                arguments,
+                HandleProgress,
+                _downloadCancellationTokenSource.Token);
+
+            StatusText = "Gotowe.";
+            Progress = 100;
+        }
+        catch (OperationCanceledException)
+        {
+            StatusText = "Pobieranie anulowane.";
+        }
+        catch (Exception ex)
+        {
+            StatusText = "Wystąpił błąd.";
+            LogText += Environment.NewLine + ex.Message;
+        }
+        finally
+        {
+            _downloadCancellationTokenSource?.Dispose();
+            _downloadCancellationTokenSource = null;
+            IsDownloading = false;
+        }
     }
 
 
     private void HandleProgress(string line)
     {
+        LogText += line + Environment.NewLine;
+
+        if (line.Contains("[ExtractAudio]"))
+            StatusText = "Konwersja audio...";
+
+        if (line.Contains("[Merger]"))
+            StatusText = "Łączenie audio i wideo...";
+
         var match = System.Text.RegularExpressions.Regex.Match(
             line,
             @"(\d{1,3}\.\d)%");

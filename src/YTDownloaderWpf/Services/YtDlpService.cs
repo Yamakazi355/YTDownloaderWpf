@@ -38,12 +38,15 @@ public class YtDlpService
     }
     public async Task RunCustomCommandAsync(
     string arguments,
-    Action<string>? onOutput = null)
+    Action<string>? onOutput = null,
+    CancellationToken cancellationToken = default)
     {
         await _processService.RunAsync(
             YtDlpPath,
             arguments,
-            onOutput);
+            onOutput,
+            onOutput,
+            cancellationToken);
     }
     public async Task DownloadFormatAsync(
     string url,

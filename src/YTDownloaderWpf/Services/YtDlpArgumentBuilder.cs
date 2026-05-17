@@ -55,10 +55,18 @@ public class YtDlpArgumentBuilder
     }
 
     private string BuildVideoWithAudioArguments(
-        DownloadRequest request,
-        string outputPath)
+    DownloadRequest request,
+    string outputPath)
     {
-        
+        var allowedVideoFormats = new[] { "mp4", "webm", "mkv" };
+
+        if (!allowedVideoFormats.Contains(request.OutputFormat))
+            throw new InvalidOperationException("Ten format jest dostępny tylko dla wideo.");
+
+        var ffmpegPath = Path.Combine(
+            AppDomain.CurrentDomain.BaseDirectory,
+            "ThirdParty",
+            "bin");
 
         var qualityFilter = request.Quality switch
         {
@@ -68,9 +76,14 @@ public class YtDlpArgumentBuilder
             _ => ""
         };
 
+        var formatSelector = request.OutputFormat == "mp4"
+            ? $"bv*[ext=mp4]{qualityFilter}+ba[ext=m4a]/b[ext=mp4]/b"
+            : $"bv*{qualityFilter}+ba/b";
+
         return
-            $"-f \"bv*{qualityFilter}+ba/b\" " +
+            $"-f \"{formatSelector}\" " +
             $"--merge-output-format {request.OutputFormat} " +
+            $"--ffmpeg-location \"{ffmpegPath}\" " +
             $"--newline " +
             $"--progress " +
             $"-o \"{outputPath}\" " +
