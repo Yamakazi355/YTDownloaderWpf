@@ -1,11 +1,84 @@
 {
   "version": 3,
   "targets": {
-    "net10.0-windows7.0": {}
+    "net10.0-windows7.0": {
+      "NuGet.Versioning/6.14.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NuGet.Versioning.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NuGet.Versioning.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Velopack/0.0.1298": {
+        "type": "package",
+        "dependencies": {
+          "NuGet.Versioning": "6.14.0"
+        },
+        "compile": {
+          "lib/net9.0/Velopack.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Velopack.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "NuGet.Versioning/6.14.0": {
+      "sha512": "4v4blkhCv8mpKtfx+z0G/X0daVCzdIaHSC51GkUspugi5JIMn2Bo8xm5PdZYF0U68gOBfz/+aPWMnpRd85Jbow==",
+      "type": "package",
+      "path": "nuget.versioning/6.14.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net472/NuGet.Versioning.dll",
+        "lib/net472/NuGet.Versioning.xml",
+        "lib/netstandard2.0/NuGet.Versioning.dll",
+        "lib/netstandard2.0/NuGet.Versioning.xml",
+        "nuget.versioning.6.14.0.nupkg.sha512",
+        "nuget.versioning.nuspec"
+      ]
+    },
+    "Velopack/0.0.1298": {
+      "sha512": "PJ6Nm28qJ4ChsHYzgHUJ8g+DGyyHes2+bwxY709+znMhgi8fMp8M1FTF8x6pZMjnsPCWVwoMlxVEyq0NLeRZtA==",
+      "type": "package",
+      "path": "velopack/0.0.1298",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README_NUGET.md",
+        "Velopack_200.png",
+        "lib/net462/Velopack.dll",
+        "lib/net462/Velopack.xml",
+        "lib/net6.0/Velopack.dll",
+        "lib/net6.0/Velopack.xml",
+        "lib/net8.0/Velopack.dll",
+        "lib/net8.0/Velopack.xml",
+        "lib/net9.0/Velopack.dll",
+        "lib/net9.0/Velopack.xml",
+        "lib/netstandard2.0/Velopack.dll",
+        "lib/netstandard2.0/Velopack.xml",
+        "velopack.0.0.1298.nupkg.sha512",
+        "velopack.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0-windows7.0": []
+    "net10.0-windows7.0": [
+      "Velopack >= 0.0.1298"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Yoshimura\\.nuget\\packages\\": {},
@@ -14,11 +87,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\YTDownloaderWpf.csproj",
-      "projectName": "YTDownloaderWpf",
-      "projectPath": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\YTDownloaderWpf.csproj",
+      "projectUniqueName": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YtDownloaderWpf\\YtDownloaderWpf.csproj",
+      "projectName": "YtDownloaderWpf",
+      "projectPath": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YtDownloaderWpf\\YtDownloaderWpf.csproj",
       "packagesPath": "C:\\Users\\Yoshimura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\obj\\",
+      "outputPath": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YtDownloaderWpf\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -56,6 +129,12 @@
     "frameworks": {
       "net10.0-windows7.0": {
         "targetAlias": "net10.0-windows",
+        "dependencies": {
+          "Velopack": {
+            "target": "Package",
+            "version": "[0.0.1298, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

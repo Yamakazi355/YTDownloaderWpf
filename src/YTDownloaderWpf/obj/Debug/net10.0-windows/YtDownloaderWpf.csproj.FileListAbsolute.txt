@@ -18,3 +18,8 @@ C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\
 C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net10.0-windows\YtDownloaderWpf.pdb
 C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net10.0-windows\YtDownloaderWpf.genruntimeconfig.cache
 C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net10.0-windows\ref\YtDownloaderWpf.dll
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\bin\Debug\net10.0-windows\NuGet.Versioning.dll
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\bin\Debug\net10.0-windows\Velopack.dll
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net10.0-windows\YtDownloaderWpf.csproj.AssemblyReference.cache
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net10.0-windows\YtDownloaderWpf.sourcelink.json
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net10.0-windows\YtDownlo.3DF17D89.Up2Date

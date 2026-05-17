@@ -1,0 +1,80 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    env:
+      APP_ID: YtDownloaderWpf
+      PROJECT_PATH: src/YtDownloaderWpf/YtDownloaderWpf.csproj
+      MAIN_EXE: YtDownloaderWpf.exe
+      PUBLISH_DIR: publish
+      RELEASE_DIR: Releases
+      REPO_URL: https://github.com/Yamakazi355/YtDownloaderWpf
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Get version from tag
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          echo "VERSION=$version" >> $env:GITHUB_ENV
+
+      - name: Restore
+        run: dotnet restore $env:PROJECT_PATH
+
+      - name: Publish
+        run: >
+          dotnet publish $env:PROJECT_PATH
+          -c Release
+          -r win-x64
+          --self-contained true
+          -p:PublishSingleFile=false
+          -p:Version=$env:VERSION
+          -o $env:PUBLISH_DIR
+
+      - name: Install Velopack CLI
+        run: dotnet tool install -g vpk
+
+      - name: Download previous Velopack release
+        shell: pwsh
+        run: |
+          vpk download github `
+            --repoUrl $env:REPO_URL `
+            --outputDir $env:RELEASE_DIR
+        continue-on-error: true
+
+      - name: Pack with Velopack
+        run: >
+          vpk pack
+          --packId $env:APP_ID
+          --packVersion $env:VERSION
+          --packDir $env:PUBLISH_DIR
+          --mainExe $env:MAIN_EXE
+          --outputDir $env:RELEASE_DIR
+
+      - name: Upload to GitHub Releases
+        run: >
+          vpk upload github
+          --repoUrl $env:REPO_URL
+          --releaseName "YtDownloaderWpf $env:VERSION"
+          --tag ${{ github.ref_name }}
+          --inputDir $env:RELEASE_DIR
+          --publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
