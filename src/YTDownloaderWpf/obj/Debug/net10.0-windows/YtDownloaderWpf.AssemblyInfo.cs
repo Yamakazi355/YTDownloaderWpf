@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YtDownloaderWpf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef68c3856b2ba1e3f30271b9842e175eac6a2a31")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e92c1d090557aa1fc753297bf37cec8b0824fe05")]
 [assembly: System.Reflection.AssemblyProductAttribute("YtDownloaderWpf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YtDownloaderWpf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

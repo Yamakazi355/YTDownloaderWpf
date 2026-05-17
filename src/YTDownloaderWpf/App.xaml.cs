@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Velopack;
+using YtDownloaderWpf.Services;
 
 namespace YTDownloaderWpf;
 
@@ -8,11 +9,15 @@ namespace YTDownloaderWpf;
 /// </summary>
 public partial class App : Application
 {
-    protected override void OnStartup(StartupEventArgs e)
+    protected override async void OnStartup(StartupEventArgs e)
     {
         VelopackApp.Build().Run();
 
         base.OnStartup(e);
+
+        var updateService = new UpdateService();
+
+        await updateService.CheckForUpdatesAsync();
     }
 }
 
