@@ -75,6 +75,7 @@ jobs:
           --releaseName "YtDownloaderWpf $env:VERSION"
           --tag ${{ github.ref_name }}
           --outputDir $env:RELEASE_DIR
+          --token $env.GITHUB_TOKEN
           --publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
