@@ -234,10 +234,10 @@ public class MainViewModel : ObservableObject
             StatusText = "Przygotowywanie pobierania...";
             LogText = "";
             Progress = 0;
-
+            var url = Url.Substring(0, Url.IndexOf('&') > 0 ? Url.IndexOf('&') : Url.Length);
             var request = new DownloadRequest
             {
-                Url = Url,
+                Url = url,
                 OutputFormat = SelectedOutputFormat ?? "mp4",
                 Quality = SelectedQuality ?? "Best",
                 Mode = SelectedDownloadMode switch

@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|c:\\users\\yoshimura\\desktop\\programowanie\\c#\\ytdownloaderwpf\\src\\ytdownloaderwpf\\services\\ytdlpargumentbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|solutionrelative:src\\ytdownloaderwpf\\services\\ytdlpargumentbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|c:\\users\\yoshimura\\desktop\\programowanie\\c#\\ytdownloaderwpf\\src\\ytdownloaderwpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|solutionrelative:src\\ytdownloaderwpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|c:\\users\\yoshimura\\desktop\\programowanie\\c#\\ytdownloaderwpf\\src\\ytdownloaderwpf\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|solutionrelative:src\\ytdownloaderwpf\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|c:\\users\\yoshimura\\desktop\\programowanie\\c#\\ytdownloaderwpf\\src\\ytdownloaderwpf\\services\\ytdlpargumentbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|solutionrelative:src\\ytdownloaderwpf\\services\\ytdlpargumentbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|c:\\users\\yoshimura\\desktop\\programowanie\\c#\\ytdownloaderwpf\\src\\ytdownloaderwpf\\services\\ytdlpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|c:\\users\\yoshimura\\desktop\\programowanie\\c#\\ytdownloaderwpf\\src\\ytdownloaderwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|solutionrelative:src\\ytdownloaderwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|c:\\users\\yoshimura\\desktop\\programowanie\\c#\\ytdownloaderwpf\\src\\ytdownloaderwpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F96637AB-25C3-F02D-6090-1534D329A2F8}|src\\YtDownloaderWpf\\YtDownloaderWpf.csproj|solutionrelative:src\\ytdownloaderwpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,24 +58,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "YtDlpArgumentBuilder.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Services\\YtDlpArgumentBuilder.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Services\\YtDlpArgumentBuilder.cs",
               "ToolTip": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Services\\YtDlpArgumentBuilder.cs",
               "RelativeToolTip": "src\\YTDownloaderWpf\\Services\\YtDlpArgumentBuilder.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAowDgAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-17T18:27:01.596Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "DownloadMode.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Models\\DownloadMode.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Models\\DownloadMode.cs",
@@ -87,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "DownloadRequest.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Models\\DownloadRequest.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Models\\DownloadRequest.cs",
@@ -105,14 +105,14 @@
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\ViewModels\\MainViewModel.cs",
               "ToolTip": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\ViewModels\\MainViewModel.cs",
               "RelativeToolTip": "src\\YTDownloaderWpf\\ViewModels\\MainViewModel.cs",
-              "ViewState": "AgIAAPIAAAAAAAAAAAAuwBQBAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAmwOkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-17T18:06:14.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "VideoFormat.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Models\\VideoFormat.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Models\\VideoFormat.cs",
@@ -124,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\MainWindow.xaml.cs",
@@ -136,19 +136,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\MainWindow.xaml",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\MainWindow.xaml",
               "RelativeToolTip": "src\\YTDownloaderWpf\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-17T17:36:34.851Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T17:36:34.851Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "VideoInfo.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Models\\VideoInfo.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Models\\VideoInfo.cs",
@@ -160,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "YtDlpService.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Services\\YtDlpService.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Services\\YtDlpService.cs",
@@ -168,12 +167,11 @@
               "RelativeToolTip": "src\\YTDownloaderWpf\\Services\\YtDlpService.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwCYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:35:31.718Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T17:35:31.718Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ProcessService.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Services\\ProcessService.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Services\\ProcessService.cs",
@@ -181,12 +179,11 @@
               "RelativeToolTip": "src\\YTDownloaderWpf\\Services\\ProcessService.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAowCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:34:42.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T17:34:42.437Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\App.xaml.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\App.xaml.cs",
@@ -194,11 +191,12 @@
               "RelativeToolTip": "src\\YTDownloaderWpf\\App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:24:48.531Z"
+              "WhenOpened": "2026-05-17T17:24:48.531Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UpdateService.cs",
               "DocumentMoniker": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YTDownloaderWpf\\Services\\UpdateService.cs",
               "RelativeDocumentMoniker": "src\\YTDownloaderWpf\\Services\\UpdateService.cs",
@@ -206,8 +204,7 @@
               "RelativeToolTip": "src\\YTDownloaderWpf\\Services\\UpdateService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:23:28.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T17:23:28.314Z"
             }
           ]
         }
