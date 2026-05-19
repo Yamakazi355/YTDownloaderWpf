@@ -74,3 +74,7 @@ C:\Users\jgaleziewski.KATCON\Desktop\Codes\C#\YTDownloaderWpf\src\YtDownloaderWp
 C:\Users\jgaleziewski.KATCON\Desktop\Codes\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net8.0-windows\YtDownloaderWpf_MarkupCompile.lref
 C:\Users\jgaleziewski.KATCON\Desktop\Codes\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net8.0-windows\App.baml
 C:\Users\jgaleziewski.KATCON\Desktop\Codes\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net8.0-windows\YtDownloaderWpf_Content.g.cs
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net8.0-windows\Resources\Styles.baml
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net8.0-windows\YtDownloaderWpf_Content.g.cs
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net8.0-windows\YtDownloaderWpf_MarkupCompile.lref
+C:\Users\Yoshimura\Desktop\Programowanie\C#\YTDownloaderWpf\src\YtDownloaderWpf\obj\Debug\net8.0-windows\App.baml

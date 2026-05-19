@@ -27,7 +27,8 @@
                                    Style="{StaticResource SectionTitleStyle}"/>
 
                         <TextBox Style="{StaticResource InputTextStyle}"
-                            Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"/>
+                                 IsEnabled="{Binding LockUrlInput}"
+                                 Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <Button Content="Pobierz informacje"
                                 Style="{StaticResource PrimaryButton}"

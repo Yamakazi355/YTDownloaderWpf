@@ -15,6 +15,9 @@ public class MainViewModel : ObservableObject
     private string? _videoTitle;
     private string? _uploader;
     private double _progress;
+
+
+    [NotifyPropertyChangedFor(nameof(LockUrlInput))]
     private bool _isLoading;
     private string? _selectedDownloadMode;
     private string? _selectedOutputFormat;
@@ -62,7 +65,23 @@ public class MainViewModel : ObservableObject
     public string? Url
     {
         get => _url;
-        set => SetProperty(ref _url, formatUrl(value));
+        set
+        {
+            SetProperty(ref _url, formatUrl(value));
+            if (string.IsNullOrEmpty(value))
+                return;
+            if (value.Length > 30 && value.Contains("watch?"))
+            {
+                VideoTitle = string.Empty;
+                Uploader = string.Empty;
+                ThumbnailUrl = ThumbnailPlaceholder;
+                LogText = string.Empty;
+                Progress = 0;
+                StatusText = string.Empty;
+                Task.Run(LoadVideoInfoAsync);
+            }
+            
+        }
     }
 
     public string? VideoTitle
@@ -86,8 +105,14 @@ public class MainViewModel : ObservableObject
     public bool IsLoading
     {
         get => _isLoading;
-        set => SetProperty(ref _isLoading, value);
+        set
+        {
+            SetProperty(ref _isLoading, value);
+            OnPropertyChanged(nameof(LockUrlInput));
+        }
     }
+
+    public bool LockUrlInput => _isLoading != true && _isDownloading != true;
 
     public string? SelectedDownloadMode
     {
@@ -134,7 +159,11 @@ public class MainViewModel : ObservableObject
     public bool IsDownloading
     {
         get => _isDownloading;
-        set => SetProperty(ref _isDownloading, value);
+        set
+        {
+            SetProperty(ref _isDownloading, value);
+            OnPropertyChanged(nameof(LockUrlInput));
+        }
     }
 
     public string? LogText
@@ -169,7 +198,7 @@ public class MainViewModel : ObservableObject
         try
         {
             IsLoading = true;
-
+            StatusText = "Ładowanie informacji o wideo...";
             var info = await _ytDlpService.GetVideoInfoAsync(Url);
 
             if (info == null)
@@ -185,6 +214,7 @@ public class MainViewModel : ObservableObject
         }
         finally
         {
+            StatusText = string.Empty;
             IsLoading = false;
         }
     }

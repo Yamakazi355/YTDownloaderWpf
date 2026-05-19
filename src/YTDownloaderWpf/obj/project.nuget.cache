@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "bHga8UNvXPQ=",
+  "dgSpecHash": "14Q9d3+yB9k=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jgaleziewski.KATCON\\Desktop\\Codes\\C#\\YTDownloaderWpf\\src\\YtDownloaderWpf\\YtDownloaderWpf.csproj",
+  "projectFilePath": "C:\\Users\\Yoshimura\\Desktop\\Programowanie\\C#\\YTDownloaderWpf\\src\\YtDownloaderWpf\\YtDownloaderWpf.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jgaleziewski.KATCON\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.2\\communitytoolkit.mvvm.8.4.2.nupkg.sha512",
-    "C:\\Users\\jgaleziewski.KATCON\\.nuget\\packages\\nuget.versioning\\6.14.0\\nuget.versioning.6.14.0.nupkg.sha512",
-    "C:\\Users\\jgaleziewski.KATCON\\.nuget\\packages\\velopack\\0.0.1298\\velopack.0.0.1298.nupkg.sha512"
+    "C:\\Users\\Yoshimura\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.2\\communitytoolkit.mvvm.8.4.2.nupkg.sha512",
+    "C:\\Users\\Yoshimura\\.nuget\\packages\\nuget.versioning\\6.14.0\\nuget.versioning.6.14.0.nupkg.sha512",
+    "C:\\Users\\Yoshimura\\.nuget\\packages\\velopack\\0.0.1298\\velopack.0.0.1298.nupkg.sha512",
+    "C:\\Users\\Yoshimura\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.25\\microsoft.windowsdesktop.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\Yoshimura\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.25\\microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\Yoshimura\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.25\\microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\Yoshimura\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.25\\microsoft.netcore.app.host.win-x64.8.0.25.nupkg.sha512"
   ],
   "logs": []
 }
