@@ -15,4 +15,7 @@ public class VideoInfo
 
     [JsonPropertyName("formats")]
     public List<VideoFormat>? Formats { get; set; }
+
+    [JsonPropertyName("thumbnail")]
+    public string? Thumbnail { get; set; }
 }

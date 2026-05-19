@@ -2,132 +2,173 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="YT Downloader"
-        Height="800"
-        Width="600">
+        Height="720"
+        Width="1050"
+        MinHeight="620"
+        MinWidth="900"
+        Background="#111827">
 
     <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <!-- LEWA KOLUMNA -->
+        <ScrollViewer Grid.Column="0"
+                      VerticalScrollBarVisibility="Auto">
 
-        <TextBlock
-            Text="YouTube URL"
-            FontWeight="Bold"/>
+            <StackPanel>
 
-        <TextBox
-            Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"
-            Grid.Row="1"
-            Height="35"
-            Margin="0,10,0,0"/>
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="YouTube URL"
+                                   Style="{StaticResource SectionTitleStyle}"/>
 
-        <StackPanel
-            Grid.Row="2"
-            Margin="0,60,0,0">
+                        <TextBox Style="{StaticResource InputTextStyle}"
+                            Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBlock Text="Tryb pobierania"/>
+                        <Button Content="Pobierz informacje"
+                                Style="{StaticResource PrimaryButton}"
+                                Command="{Binding LoadVideoInfoCommand}"/>
+                    </StackPanel>
+                </Border>
 
-            <ComboBox
-                ItemsSource="{Binding DownloadModes}"
-                SelectedItem="{Binding SelectedDownloadMode}"
-                Margin="0,5,0,15"/>
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Opcje pobierania"
+                                   Style="{StaticResource SectionTitleStyle}"/>
 
-            <TextBlock Text="Format wyjściowy"/>
+                        <TextBlock Text="Tryb pobierania" Style="{StaticResource OptionTitleStyle}"/>
+                        <ComboBox ItemsSource="{Binding DownloadModes}"
+                                  SelectedItem="{Binding SelectedDownloadMode}"/>
 
-            <ComboBox
-                ItemsSource="{Binding OutputFormats}"
-                SelectedItem="{Binding SelectedOutputFormat}"
-                Margin="0,5,0,15"/>
+                        <TextBlock Text="Format wyjściowy" Style="{StaticResource OptionTitleStyle}"/>
+                        <ComboBox ItemsSource="{Binding OutputFormats}"
+                                  SelectedItem="{Binding SelectedOutputFormat}"/>
 
-            <TextBlock Text="Jakość"/>
+                        <TextBlock Text="Jakość" Style="{StaticResource OptionTitleStyle}"/>
+                        <ComboBox ItemsSource="{Binding Qualities}"
+                                  SelectedItem="{Binding SelectedQuality}"/>
+                    </StackPanel>
+                </Border>
 
-            <ComboBox
-                ItemsSource="{Binding Qualities}"
-                SelectedItem="{Binding SelectedQuality}"
-                Margin="0,5,0,15"/>
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Folder zapisu"
+                                   Style="{StaticResource SectionTitleStyle}"/>
 
-        </StackPanel>
-        
-        <Button
-            Grid.Row="3"
-            Height="40"
-            Margin="0,15,0,0"
-            Content="Pobierz informacje"
-            Command="{Binding LoadVideoInfoCommand}"/>
-        
-        <TextBlock Text="Folder zapisu" Grid.Row="4" />
+                        <TextBox Style="{StaticResource InputTextStyle}"
+                            Text="{Binding DownloadFolder}"
+                                 IsReadOnly="True"/>
 
-        <DockPanel Margin="0,5,0,15" Grid.Row="5">
-            <Button
-                Content="Wybierz"
-                Width="90"
-                DockPanel.Dock="Right"
-                Command="{Binding SelectDownloadFolderCommand}" />
+                        <Button Content="Wybierz folder"
+                                Style="{StaticResource PrimaryButton}"
+                                Command="{Binding SelectDownloadFolderCommand}"/>
+                    </StackPanel>
+                </Border>
 
-            <TextBox
-                Text="{Binding DownloadFolder}"
-                IsReadOnly="True"
-                Margin="0,0,10,0" />
-        </DockPanel>
-        <StackPanel  Grid.Row="6"
-            Margin="0,0,0,15">
-            <Button
-            Command="{Binding DownloadCommand}"
-            Height="40"
-            Margin="0,10,0,0"
-            Content="Pobierz wybrany format"/>
-            <Button
-            Content="Anuluj"
-            Height="45"
-            Margin="0,10,0,0"
-            Command="{Binding CancelDownloadCommand}" />
-        </StackPanel>
-        <StackPanel Grid.Row="7"
-            Margin="0,20,0,0">
-
-            <TextBlock
-                Text="{Binding VideoTitle}"
-                FontSize="18"
-                FontWeight="Bold"
-                TextWrapping="Wrap"/>
-
-            <TextBlock
-                Text="{Binding Uploader}"
-                Margin="0,10,0,0"/>
-
-            <TextBlock
-                x:Name="DurationTextBlock"
-                Margin="0,5,0,0"/>
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <Button Content="Pobierz"
+                                Style="{StaticResource PrimaryButton}"
+                                Command="{Binding DownloadCommand}"
+                                FontWeight="Bold"/>
 
 
-            <ProgressBar
-                Value="{Binding Progress}"
-                Height="25"
-                Margin="0,20,0,0"
-                Minimum="0"
-                Maximum="100"/>
-            <TextBlock
-                Text="{Binding StatusText}"
-                Margin="0,10,0,0"
-                FontWeight="SemiBold"/>
-            
-            <TextBox
-                Text="{Binding LogText}"
-                Height="100"
-                Margin="0,10,0,0"
-                IsReadOnly="True"
-                TextWrapping="Wrap"
-                VerticalScrollBarVisibility="Auto"/>
+                        <Button Content="Anuluj" Margin="0,8,0,0"
+                                Style="{StaticResource RedButton}"
+                                Command="{Binding CancelDownloadCommand}"/>
+                    </StackPanel>
+                </Border>
 
-        </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
 
+        <!-- PRAWA KOLUMNA -->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Style="{StaticResource CardStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="320"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Height="180"
+                            CornerRadius="12"
+                            ClipToBounds="True"
+                            Background="#374151">
+
+                        <Image Source="{Binding ThumbnailUrl}"
+                               Stretch="UniformToFill"/>
+                    </Border>
+
+                    <StackPanel Grid.Column="2"
+                                VerticalAlignment="Center">
+
+                        <TextBlock Text="{Binding VideoTitle}"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   Foreground="SlateGray"/>
+
+                        <TextBlock Text="{Binding Uploader}"
+                                   Margin="0,10,0,0"
+                                   FontSize="14"
+                                   Foreground="#9CA3AF"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1"
+                    Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Postęp"
+                               Style="{StaticResource SectionTitleStyle}"/>
+
+                    <ProgressBar Value="{Binding Progress}"
+                                 Height="22"
+                                 Minimum="0"
+                                 Maximum="100"/>
+
+                    <TextBlock Text="{Binding StatusText}"
+                               Margin="0,10,0,0"
+                               FontWeight="SemiBold"
+                               Foreground="SlateGray"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="2"
+                    Style="{StaticResource CardStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Log"
+                               Style="{StaticResource SectionTitleStyle}"/>
+
+                    <TextBox Grid.Row="1"
+                             Text="{Binding LogText}"
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"
+                             AcceptsReturn="True"
+                             Height="Auto"/>
+
+                </Grid>
+            </Border>
+
+        </Grid>
     </Grid>
-
 </Window>

@@ -52,10 +52,17 @@ public class MainViewModel : ObservableObject
         CancelDownloadCommand = new RelayCommand(CancelDownload);
     }
 
+    private string formatUrl(string? url)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+            return string.Empty;
+        var index = url.IndexOf('&');
+        return index > 0 ? url.Substring(0, index) : url;
+    }
     public string? Url
     {
         get => _url;
-        set => SetProperty(ref _url, value);
+        set => SetProperty(ref _url, formatUrl(value));
     }
 
     public string? VideoTitle
@@ -141,6 +148,14 @@ public class MainViewModel : ObservableObject
         get => _downloadFolder;
         set => SetProperty(ref _downloadFolder, value);
     }
+    private const string ThumbnailPlaceholder = "pack://application:,,,/Resources/Images/thumbnail-placeholder.jpg";
+    private string? _thumbnailUrl = ThumbnailPlaceholder;
+    public string? ThumbnailUrl
+    {
+        get => _thumbnailUrl;
+        set => SetProperty(ref _thumbnailUrl, value);
+    }
+
     private CancellationTokenSource? _downloadCancellationTokenSource;
     public IAsyncRelayCommand LoadVideoInfoCommand { get; }
     public IAsyncRelayCommand DownloadCommand { get; }
@@ -164,6 +179,9 @@ public class MainViewModel : ObservableObject
 
             VideoTitle = info.Title;
             Uploader = info.Uploader;
+            ThumbnailUrl = string.IsNullOrWhiteSpace(info.Thumbnail)
+                ? ThumbnailPlaceholder
+                : info.Thumbnail;
         }
         finally
         {
@@ -228,16 +246,16 @@ public class MainViewModel : ObservableObject
             return;
         if (IsDownloading)
             return;
+        await LoadVideoInfoAsync();
         try
         {
             IsDownloading = true;
             StatusText = "Przygotowywanie pobierania...";
             LogText = "";
             Progress = 0;
-            var url = Url.Substring(0, Url.IndexOf('&') > 0 ? Url.IndexOf('&') : Url.Length);
             var request = new DownloadRequest
             {
-                Url = url,
+                Url = Url,
                 OutputFormat = SelectedOutputFormat ?? "mp4",
                 Quality = SelectedQuality ?? "Best",
                 Mode = SelectedDownloadMode switch
