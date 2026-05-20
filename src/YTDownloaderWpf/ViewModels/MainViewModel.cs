@@ -17,7 +17,6 @@ public class MainViewModel : ObservableObject
     private double _progress;
 
 
-    [NotifyPropertyChangedFor(nameof(LockUrlInput))]
     private bool _isLoading;
     private string? _selectedDownloadMode;
     private string? _selectedOutputFormat;
